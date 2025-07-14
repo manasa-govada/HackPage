@@ -1,0 +1,480 @@
+/* Combined CSS for all sections */
+:root {
+    /* Shared variables */
+    --purple-dark: #4b2e83;
+    --purple-light: #7d5ba6;
+    --black: #0a0a1a;
+    --white: #ffffff;
+    --primary-blue: #1a73e8;
+    --accent-color: #34a853;
+    --card-bg: #202030;
+    --range-line: #444455;
+    --range-marker: #1a73e8;
+    --inactive-marker: #444455;
+    --active-marker: #1a73e8;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+/* Space Program Participation Section */
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.section-title {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-blue);
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.astronaut-center {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    flex-shrink: 0;
+}
+
+.astronaut-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 5;
+    position: relative;
+    border: 5px solid var(--accent-color);
+    animation: float 6s ease-in-out infinite;
+}
+
+.animation-circles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--accent-color);
+    opacity: 0.3;
+}
+
+.circle-1 {
+    width: 120%;
+    height: 120%;
+    animation: pulse 4s infinite ease-in-out;
+}
+
+.circle-2 {
+    width: 150%;
+    height: 150%;
+    animation: pulse 5s infinite ease-in-out 0.5s;
+}
+
+.circle-3 {
+    width: 180%;
+    height: 180%;
+    animation: pulse 6s infinite ease-in-out 1s;
+}
+
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 250px;
+}
+
+.purple-bg {
+    background-color: var(--purple-dark);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.purple-bg h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.purple-bg p {
+    color: var(--white);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Hackathon Timeline Section */
+.timeline-container {
+    background-color: var(--black);
+    padding: 4rem 2rem;
+    color: var(--white);
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.timeline-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--accent-color);
+}
+
+.timeline-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-blue);
+}
+
+.timeline-slider {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.timeline-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.timeline-slide {
+    min-width: 100%;
+    padding: 0 1rem;
+}
+
+.timeline-content {
+    background-color: var(--purple-dark);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    height: 100%;
+    border-left: 5px solid var(--primary-blue);
+}
+
+.timeline-content:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-content h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.timeline-content p {
+    color: var(--white);
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 1.5rem 0;
+}
+
+/* Slide Timeline Range */
+.slide-timeline-range {
+    margin-top: 2rem;
+}
+
+.timeline-range {
+    position: relative;
+    height: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.range-line {
+    height: 4px;
+    background-color: var(--range-line);
+    border-radius: 2px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.range-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--range-marker);
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.range-dates {
+    display: flex;
+    justify-content: space-between;
+    color: var(--white);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.slider-prev, .slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(26, 115, 232, 0.7);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.slider-prev:hover, .slider-next:hover {
+    background-color: var(--primary-blue);
+}
+
+.slider-prev {
+    left: 20px;
+}
+
+.slider-next {
+    right: 20px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 10px;
+}
+
+.slider-dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-dots button.active {
+    background-color: var(--primary-blue);
+    transform: scale(1.2);
+}
+
+/* Space Gallery Section */
+.gallery-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-areas:
+        "top-left top-right"
+        "middle middle"
+        "bottom-left bottom-right";
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(75, 46, 131, 0.7) 0%, rgba(10, 10, 26, 0.7) 100%);
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+/* Individual item positioning */
+.top-left { grid-area: top-left; }
+.top-right { grid-area: top-right; }
+.middle { grid-area: middle; }
+.bottom-left { grid-area: bottom-left; }
+.bottom-right { grid-area: bottom-right; }
+
+/* Hover Effects */
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item:hover .overlay {
+    opacity: 0.3;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.4;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .astronaut-center {
+        margin-bottom: 3rem;
+    }
+    
+    .text-content {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .purple-bg {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title, .timeline-title {
+        font-size: 2rem;
+    }
+    
+    .astronaut-center {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .purple-bg {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .timeline-content p {
+        font-size: 1rem;
+    }
+    
+    .slider-prev, .slider-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .gallery-grid {
+        grid-template-areas:
+            "top-left"
+            "top-right"
+            "middle"
+            "bottom-left"
+            "bottom-right";
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .section-title, .timeline-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-range {
+        margin: 1.5rem auto 2rem;
+    }
+    
+    .purple-bg h3 {
+        font-size: 1.3rem;
+    }
+    
+    .purple-bg p {
+        font-size: 1rem;
+    }
+    
+    .gallery-item {
+        aspect-ratio: 16/9;
+    }
+}
